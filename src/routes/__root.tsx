@@ -77,20 +77,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "لجنة الامتحانات العامة | كلية الأعمال والاقتصاد" },
+      { name: "description", content: "منصة موحدة لإدارة لجان الاختبارات النهائية، الأعضاء، المقررات، وملصقات الكنترول والأرشفة." },
+      { property: "og:title", content: "لجنة الامتحانات العامة | كلية الأعمال والاقتصاد" },
+      { property: "og:description", content: "منصة موحدة لإدارة لجان الاختبارات النهائية، الأعضاء، المقررات، وملصقات الكنترول والأرشفة." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "لجنة الامتحانات العامة | كلية الأعمال والاقتصاد" },
+      { name: "twitter:description", content: "منصة موحدة لإدارة لجان الاختبارات النهائية، الأعضاء، المقررات، وملصقات الكنترول والأرشفة." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1824879c-60bf-48de-a626-a0e888ae6373/id-preview-104d9d2e--fe659b09-8a6f-4e75-b5c9-d7d88730899b.lovable.app-1781426745487.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1824879c-60bf-48de-a626-a0e888ae6373/id-preview-104d9d2e--fe659b09-8a6f-4e75-b5c9-d7d88730899b.lovable.app-1781426745487.png" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -101,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ar" dir="rtl">
       <head>
         <HeadContent />
       </head>

@@ -9,38 +9,209 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
+import { Route as AppSettingsIndexRouteImport } from './routes/_app.settings.index'
+import { Route as AppSettingsAdminsRouteImport } from './routes/_app.settings.admins'
+import { Route as AppFunctionsMonitorsRouteImport } from './routes/_app.functions.monitors'
+import { Route as AppFunctionsEnvelopesRouteImport } from './routes/_app.functions.envelopes'
+import { Route as AppFunctionsArchiveRouteImport } from './routes/_app.functions.archive'
+import { Route as AppDataMembersRouteImport } from './routes/_app.data.members'
+import { Route as AppDataDepartmentsRouteImport } from './routes/_app.data.departments'
+import { Route as AppDataDailyRouteImport } from './routes/_app.data.daily'
+import { Route as AppDataCoursesRouteImport } from './routes/_app.data.courses'
+import { Route as AppDataBasesRouteImport } from './routes/_app.data.bases'
 
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/_app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsIndexRoute = AppSettingsIndexRouteImport.update({
+  id: '/settings/',
+  path: '/settings/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsAdminsRoute = AppSettingsAdminsRouteImport.update({
+  id: '/settings/admins',
+  path: '/settings/admins',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFunctionsMonitorsRoute = AppFunctionsMonitorsRouteImport.update({
+  id: '/functions/monitors',
+  path: '/functions/monitors',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFunctionsEnvelopesRoute = AppFunctionsEnvelopesRouteImport.update({
+  id: '/functions/envelopes',
+  path: '/functions/envelopes',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFunctionsArchiveRoute = AppFunctionsArchiveRouteImport.update({
+  id: '/functions/archive',
+  path: '/functions/archive',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDataMembersRoute = AppDataMembersRouteImport.update({
+  id: '/data/members',
+  path: '/data/members',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDataDepartmentsRoute = AppDataDepartmentsRouteImport.update({
+  id: '/data/departments',
+  path: '/data/departments',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDataDailyRoute = AppDataDailyRouteImport.update({
+  id: '/data/daily',
+  path: '/data/daily',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDataCoursesRoute = AppDataCoursesRouteImport.update({
+  id: '/data/courses',
+  path: '/data/courses',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDataBasesRoute = AppDataBasesRouteImport.update({
+  id: '/data/bases',
+  path: '/data/bases',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof AppDashboardRoute
+  '/data/bases': typeof AppDataBasesRoute
+  '/data/courses': typeof AppDataCoursesRoute
+  '/data/daily': typeof AppDataDailyRoute
+  '/data/departments': typeof AppDataDepartmentsRoute
+  '/data/members': typeof AppDataMembersRoute
+  '/functions/archive': typeof AppFunctionsArchiveRoute
+  '/functions/envelopes': typeof AppFunctionsEnvelopesRoute
+  '/functions/monitors': typeof AppFunctionsMonitorsRoute
+  '/settings/admins': typeof AppSettingsAdminsRoute
+  '/settings/': typeof AppSettingsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof AppDashboardRoute
+  '/data/bases': typeof AppDataBasesRoute
+  '/data/courses': typeof AppDataCoursesRoute
+  '/data/daily': typeof AppDataDailyRoute
+  '/data/departments': typeof AppDataDepartmentsRoute
+  '/data/members': typeof AppDataMembersRoute
+  '/functions/archive': typeof AppFunctionsArchiveRoute
+  '/functions/envelopes': typeof AppFunctionsEnvelopesRoute
+  '/functions/monitors': typeof AppFunctionsMonitorsRoute
+  '/settings/admins': typeof AppSettingsAdminsRoute
+  '/settings': typeof AppSettingsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/data/bases': typeof AppDataBasesRoute
+  '/_app/data/courses': typeof AppDataCoursesRoute
+  '/_app/data/daily': typeof AppDataDailyRoute
+  '/_app/data/departments': typeof AppDataDepartmentsRoute
+  '/_app/data/members': typeof AppDataMembersRoute
+  '/_app/functions/archive': typeof AppFunctionsArchiveRoute
+  '/_app/functions/envelopes': typeof AppFunctionsEnvelopesRoute
+  '/_app/functions/monitors': typeof AppFunctionsMonitorsRoute
+  '/_app/settings/admins': typeof AppSettingsAdminsRoute
+  '/_app/settings/': typeof AppSettingsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/data/bases'
+    | '/data/courses'
+    | '/data/daily'
+    | '/data/departments'
+    | '/data/members'
+    | '/functions/archive'
+    | '/functions/envelopes'
+    | '/functions/monitors'
+    | '/settings/admins'
+    | '/settings/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/data/bases'
+    | '/data/courses'
+    | '/data/daily'
+    | '/data/departments'
+    | '/data/members'
+    | '/functions/archive'
+    | '/functions/envelopes'
+    | '/functions/monitors'
+    | '/settings/admins'
+    | '/settings'
+  id:
+    | '__root__'
+    | '/'
+    | '/_app'
+    | '/auth'
+    | '/_app/dashboard'
+    | '/_app/data/bases'
+    | '/_app/data/courses'
+    | '/_app/data/daily'
+    | '/_app/data/departments'
+    | '/_app/data/members'
+    | '/_app/functions/archive'
+    | '/_app/functions/envelopes'
+    | '/_app/functions/monitors'
+    | '/_app/settings/admins'
+    | '/_app/settings/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  AuthRoute: typeof AuthRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app': {
+      id: '/_app'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +219,121 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/dashboard': {
+      id: '/_app/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/settings/': {
+      id: '/_app/settings/'
+      path: '/settings'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof AppSettingsIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/settings/admins': {
+      id: '/_app/settings/admins'
+      path: '/settings/admins'
+      fullPath: '/settings/admins'
+      preLoaderRoute: typeof AppSettingsAdminsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/functions/monitors': {
+      id: '/_app/functions/monitors'
+      path: '/functions/monitors'
+      fullPath: '/functions/monitors'
+      preLoaderRoute: typeof AppFunctionsMonitorsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/functions/envelopes': {
+      id: '/_app/functions/envelopes'
+      path: '/functions/envelopes'
+      fullPath: '/functions/envelopes'
+      preLoaderRoute: typeof AppFunctionsEnvelopesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/functions/archive': {
+      id: '/_app/functions/archive'
+      path: '/functions/archive'
+      fullPath: '/functions/archive'
+      preLoaderRoute: typeof AppFunctionsArchiveRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/data/members': {
+      id: '/_app/data/members'
+      path: '/data/members'
+      fullPath: '/data/members'
+      preLoaderRoute: typeof AppDataMembersRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/data/departments': {
+      id: '/_app/data/departments'
+      path: '/data/departments'
+      fullPath: '/data/departments'
+      preLoaderRoute: typeof AppDataDepartmentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/data/daily': {
+      id: '/_app/data/daily'
+      path: '/data/daily'
+      fullPath: '/data/daily'
+      preLoaderRoute: typeof AppDataDailyRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/data/courses': {
+      id: '/_app/data/courses'
+      path: '/data/courses'
+      fullPath: '/data/courses'
+      preLoaderRoute: typeof AppDataCoursesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/data/bases': {
+      id: '/_app/data/bases'
+      path: '/data/bases'
+      fullPath: '/data/bases'
+      preLoaderRoute: typeof AppDataBasesRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppDashboardRoute: typeof AppDashboardRoute
+  AppDataBasesRoute: typeof AppDataBasesRoute
+  AppDataCoursesRoute: typeof AppDataCoursesRoute
+  AppDataDailyRoute: typeof AppDataDailyRoute
+  AppDataDepartmentsRoute: typeof AppDataDepartmentsRoute
+  AppDataMembersRoute: typeof AppDataMembersRoute
+  AppFunctionsArchiveRoute: typeof AppFunctionsArchiveRoute
+  AppFunctionsEnvelopesRoute: typeof AppFunctionsEnvelopesRoute
+  AppFunctionsMonitorsRoute: typeof AppFunctionsMonitorsRoute
+  AppSettingsAdminsRoute: typeof AppSettingsAdminsRoute
+  AppSettingsIndexRoute: typeof AppSettingsIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppDashboardRoute: AppDashboardRoute,
+  AppDataBasesRoute: AppDataBasesRoute,
+  AppDataCoursesRoute: AppDataCoursesRoute,
+  AppDataDailyRoute: AppDataDailyRoute,
+  AppDataDepartmentsRoute: AppDataDepartmentsRoute,
+  AppDataMembersRoute: AppDataMembersRoute,
+  AppFunctionsArchiveRoute: AppFunctionsArchiveRoute,
+  AppFunctionsEnvelopesRoute: AppFunctionsEnvelopesRoute,
+  AppFunctionsMonitorsRoute: AppFunctionsMonitorsRoute,
+  AppSettingsAdminsRoute: AppSettingsAdminsRoute,
+  AppSettingsIndexRoute: AppSettingsIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
