@@ -1,0 +1,58 @@
+/* Cairo font is loaded via <link> in src/routes/__root.tsx head() */
+
+.sticker-root,
+.sticker-root * {
+  font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.sticker-root {
+  direction: rtl;
+  background: #ffffff;
+  color: #0a2540;
+  position: relative;
+  overflow: hidden;
+}
+
+.sticker-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sticker-field {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  overflow: hidden;
+  color: #0a2540;
+  font-weight: 700;
+  line-height: 1.05;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.sticker-field.multi {
+  white-space: normal;
+  line-height: 1.25;
+  text-align: right;
+  justify-content: flex-start;
+  padding: 4px 6px;
+}
+
+.sticker-field.big {
+  font-weight: 800;
+}
+
+.sticker-field.stack {
+  flex-direction: column;
+  gap: 2px;
+}
