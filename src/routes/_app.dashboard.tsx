@@ -16,7 +16,7 @@ import {
   TrendingUp,
   AlertTriangle,
 } from "lucide-react";
-import collegeLogo from "@/assets/college_logo.png.asset.json";
+const collegeLogo = { url: "/college_logo.png" };
 
 export const Route = createFileRoute("/_app/dashboard")({
   head: () => ({

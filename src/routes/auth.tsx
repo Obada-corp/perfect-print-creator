@@ -19,8 +19,8 @@ import {
   BarChart3,
   AlertCircle,
 } from "lucide-react";
-import universityLogo from "@/assets/university_logo.png.asset.json";
-import collegeLogo from "@/assets/college_logo.png.asset.json";
+const universityLogo = { url: "/university_logo.png" };
+const collegeLogo = { url: "/college_logo.png" };
 
 export const Route = createFileRoute("/auth")({
   head: () => ({

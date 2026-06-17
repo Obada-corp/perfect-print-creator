@@ -9,8 +9,8 @@ import {
   type Rect,
   type StickerSettings,
 } from "./fields";
-import envelopeBg from "@/assets/envelope_bg.png.asset.json";
-import archiveBg from "@/assets/archive_bg.png.asset.json";
+const envelopeBg = { url: "/envelope_bg.png" };
+const archiveBg = { url: "/archive_bg.png" };
 import "./sticker-styles.css";
 
 function useDeptName() {

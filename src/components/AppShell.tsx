@@ -23,8 +23,8 @@ import {
 } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
-import universityLogo from "@/assets/university_logo.png.asset.json";
-import collegeLogo from "@/assets/college_logo.png.asset.json";
+const universityLogo = { url: "/university_logo.png" };
+const collegeLogo = { url: "/college_logo.png" };
 
 const nav = [
   { to: "/dashboard", label: "لوحة التحكم", icon: LayoutDashboard, perm: "view_dashboard" },
