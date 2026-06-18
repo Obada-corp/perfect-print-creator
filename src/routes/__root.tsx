@@ -22,6 +22,7 @@ import "@fontsource/tajawal/500.css";
 import "@fontsource/tajawal/700.css";
 import "@fontsource/tajawal/900.css";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { useCloudSync } from "../lib/cloud-sync";
 
 function NotFoundComponent() {
   return (
@@ -126,6 +127,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useCloudSync();
 
   return (
     <QueryClientProvider client={queryClient}>
