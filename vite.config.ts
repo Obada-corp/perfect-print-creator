@@ -1,10 +1,24 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/react-refresh";
+import react from "@vitejs/plugin-react";
+import path from "path";
 
 export default defineConfig({
   base: "/perfect-print-creator/",
-  server: {
-    host: "::",
-    port: 8080,
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  define: {
+    "process.env": {},
+  },
+  optimizeDeps: {
+    include: ["node:async_hooks"],
+  },
+  build: {
+    rollupOptions: {
+      external: ["node:async_hooks"],
+    },
   },
 });
