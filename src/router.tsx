@@ -6,7 +6,6 @@ export function createRouter() {
   const queryClient = new QueryClient()
   return createTanStackRouter({
     routeTree,
-    basepath: '/perfect-print-creator',
     context: { queryClient },
   })
 }
