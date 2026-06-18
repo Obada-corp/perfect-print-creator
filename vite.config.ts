@@ -4,7 +4,6 @@ import path from "path";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 
 export default defineConfig({
-  base: "/perfect-print-creator/",
   plugins: [
     tanstackStart({
       spa: {
